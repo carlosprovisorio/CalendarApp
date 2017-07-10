@@ -1,39 +1,39 @@
-var AppointmentForm = React.createClass({
-  handleChange: function(e) {
-    var name = e.target.name;
+class AppointmentForm extends React.Component {
+  handleChange (e) {
+    const name = e.target.name;
     obj = {};
     obj[name] = e.target.value;
     this.props.onUserInput(obj);
-  },
+  }
 
-  setAppTime: function(e) {
-    var name = 'appt_time';
-    var obj = {};
+  setAppTime (e) {
+    const name = 'appt_time';
+    const obj = {};
     if(obj[name] = e.toDate()) {
       this.props.onUserInput(obj);
     }
-  },
+  }
 
-  handleSubmit: function(e) {
+  handleSubmit (e) {
     e.preventDefault();
     this.props.onFormSubmit();
-  },
+  }
 
-  render: function(){
-    var inputProps = {
+  render (){
+    const inputProps = {
       name: 'apt_time'
-    };
+    }
 
     return (
       <div className='container'>
         <h1>Carlos Calendar - built with React-Rails</h1>
         <h2>Make a new appointment</h2>
-        <form onSubmit={this.handleSubmit} className='form'>
+        <form onSubmit={this.handleSubmit.bind(this)} className='form'>
           <input
             name='title'
             placeholder='Appointment Title'
             value={this.props.title}
-            onChange={this.handleChange}
+            onChange={this.handleChange.bind(this)}
             className='inputField'
           />
           <Datetime 
@@ -41,7 +41,7 @@ var AppointmentForm = React.createClass({
             open={true}
             inputProps={inputProps}
             value={this.props.appt_time}
-            onChange={this.setAppTime}
+            onChange={this.setAppTime.bind(this)}
           />
           <input
             type='submit'
@@ -52,4 +52,4 @@ var AppointmentForm = React.createClass({
       </div>
     )
   }
-});
+}
