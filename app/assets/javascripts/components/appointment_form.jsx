@@ -28,12 +28,12 @@ class AppointmentForm extends React.Component {
       <div className='container'>
         <h1>Carlos Calendar - built with React-Rails</h1>
         <h2>Make a new appointment</h2>
-        <form onSubmit={this.handleSubmit.bind(this)} className='form'>
+        <form onSubmit={(e) => this.handleSubmit(e)} className='form'>
           <input
             name='title'
             placeholder='Appointment Title'
             value={this.props.title}
-            onChange={this.handleChange.bind(this)}
+            onChange={(e) => this.handleChange(e)}
             className='inputField'
           />
           <Datetime 
@@ -41,7 +41,7 @@ class AppointmentForm extends React.Component {
             open={true}
             inputProps={inputProps}
             value={this.props.appt_time}
-            onChange={this.setAppTime.bind(this)}
+            onChange={(e) => this.setAppTime(e)}
           />
           <input
             type='submit'
