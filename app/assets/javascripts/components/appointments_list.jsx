@@ -1,7 +1,7 @@
 var AppointmentsList = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="container">
         {this.props.appointments.map(function(appointment) {
           return (
             <Appointment appointment={appointment} key={appointment.id}/>

@@ -2,7 +2,7 @@ var Appointments = React.createClass({
   getInitialState: function() {
     return {
       appointments: this.props.appointments,
-      title: 'Team standup meeting',
+      title: 'New appointment',
       appt_time: 'Tomorrow at 9am'
     }
   },

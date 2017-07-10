@@ -25,14 +25,16 @@ var AppointmentForm = React.createClass({
     };
 
     return (
-      <div>
+      <div className='container'>
+        <h1>Carlos Calendar - built with React-Rails</h1>
         <h2>Make a new appointment</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='form'>
           <input
             name='title'
             placeholder='Appointment Title'
             value={this.props.title}
             onChange={this.handleChange}
+            className='inputField'
           />
           <Datetime 
             input={false}
